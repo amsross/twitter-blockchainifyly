@@ -7,3 +7,5 @@ provider:
 functions:
   tweet:
     handler: handler.tweet
+    events:
+      - schedule: rate(17 hours)
