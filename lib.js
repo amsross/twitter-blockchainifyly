@@ -6,15 +6,19 @@ const aOrAn = match()
   .case(/^[aeiou]/, x => 'an ' + x)
   .case(/.*/, x => 'a ' + x)
 
-const people = declare(() => sepBy(' ',
-  choice(
-    'immitation',
-    'fake',
-    'albino',
-    'blind',
-    'white',
-    'black'),
-  'people'))
+const people = declare(() => choice(
+  'the alt right',
+  'deplorables',
+  'the illuminati',
+  sepBy(' ',
+    choice(
+      'immitation',
+      'fake',
+      'albino',
+      'blind',
+      'white',
+      'black'),
+    'people')))
 
 const company = capitalizeFirst(declare(self => seq(
   opt(self, 0.1),
