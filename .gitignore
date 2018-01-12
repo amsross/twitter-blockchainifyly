@@ -1,0 +1,4 @@
+node_modules
+.serverless
+# until lambda moves past 6.10
+package-lock.json
