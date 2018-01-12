@@ -2,4 +2,4 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/amsross/twitter-blockchainifyly.svg)](https://greenkeeper.io/)
 
-This project is backed by the hilarious [putablockchainonit](https://putablockchainonit.com/).
+This project is inspired by the hilarious [putablockchainonit](https://putablockchainonit.com/).

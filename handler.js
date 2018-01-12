@@ -1,12 +1,18 @@
 'use strict'
+const Twitter = require('twitter')
 const { run } = require('apep')
 const lib = require('./lib')
 
-module.exports.tweet = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: run(lib)
-  }
+const twitter = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+})
 
-  callback(null, response)
+module.exports.tweet = (event, context, callback) => {
+  twitter.post('statuses/update', { status: run(lib) }, (error, tweet, response) => {
+    if (error) console.error(error)
+    callback(error, tweet && tweet.text)
+  })
 }
