@@ -4,6 +4,10 @@ provider:
   name: aws
   runtime: nodejs6.10
 
+plugins:
+  - serverless-offline
+  - serverless-prune-plugin
+
 functions:
   tweet:
     handler: handler.tweet
