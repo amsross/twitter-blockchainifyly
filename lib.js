@@ -1,4 +1,4 @@
-const { declare, choice, opt, seq } = require('apep')
+const { declare, choice, opt, seq, weightedChoice } = require('apep')
 const { capitalizeFirst, match } = require('apep-std-transformations')
 const { sepBy } = require('apep-std-sep')
 
@@ -6,19 +6,21 @@ const aOrAn = match()
   .case(/^[aeiou]/, x => 'an ' + x)
   .case(/.*/, x => 'a ' + x)
 
-const people = declare(() => choice(
-  'the alt right',
-  'deplorables',
-  'the illuminati',
-  sepBy(' ',
+const people = declare(() => weightedChoice(
+  [0.1, 'the alt right'],
+  [0.1, 'deplorables'],
+  [0.1, 'the illuminati'],
+  [0.7, sepBy(' ',
     choice(
       'immitation',
       'fake',
       'albino',
       'blind',
       'white',
-      'black'),
-    'people')))
+      'black',
+      'disenfranchised'),
+    'people')]
+))
 
 const company = capitalizeFirst(declare(self => seq(
   opt(self, 0.1),
