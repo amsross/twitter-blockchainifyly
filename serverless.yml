@@ -12,4 +12,5 @@ functions:
   tweet:
     handler: handler.tweet
     events:
-      - schedule: rate(182027 seconds)
+      # Valid values: minute | minutes | hour | hours | day | days
+      - schedule: rate(3033 minutes)
