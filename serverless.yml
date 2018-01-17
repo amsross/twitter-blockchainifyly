@@ -12,4 +12,4 @@ functions:
   tweet:
     handler: handler.tweet
     events:
-      - schedule: rate(17 hours)
+      - schedule: rate(182027 seconds)
