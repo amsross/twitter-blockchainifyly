@@ -1,6 +1,6 @@
 'use strict'
 const Twitter = require('twitter')
-const { run } = require('apep')
+const { opt, run } = require('apep')
 const lib = require('./lib')
 
 const twitter = new Twitter({
@@ -11,6 +11,10 @@ const twitter = new Twitter({
 })
 
 module.exports.tweet = (event, context, callback) => {
+  const tweet = run(opt(lib, 0.5))
+
+  if (!tweet) return callback(null, 'tweet skipped')
+
   twitter.post('statuses/update', { status: run(lib) }, (error, tweet, response) => {
     if (error) console.error(error)
     callback(error, tweet && tweet.text)
