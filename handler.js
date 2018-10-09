@@ -11,7 +11,7 @@ const twitter = new Twitter({
 })
 
 module.exports.tweet = (event, context, callback) => {
-  const tweet = run(opt(lib, 0.5))
+  const tweet = run(opt(lib, 0.25))
 
   if (!tweet) return callback(null, 'tweet skipped')
 
