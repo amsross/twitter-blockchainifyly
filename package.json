@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nock": "^10.0.0",
+    "nock": "^11.1.0",
     "nodemon": "^2.0.0",
     "serverless": "^1.35.0",
     "serverless-offline": "^5.0.0",
