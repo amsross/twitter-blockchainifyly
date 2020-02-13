@@ -5,7 +5,7 @@ test('handler', assert => {
   const handler = require('./handler')
 
   nock('https://api.twitter.com').post(/.*/).reply(200, {
-    'text': 'Maybe he\'ll finally find his keys.'
+    text: 'Maybe he\'ll finally find his keys.'
   })
 
   handler.tweet(null, null, (err, string) => {
